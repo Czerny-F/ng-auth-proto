@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,9 @@ export class LoginComponent implements OnInit {
   });
   private redirectUrl = '/';
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router) { }
 
   ngOnInit() {
   }
@@ -23,6 +26,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
       // redirect
+      this.router.navigate(['/profile']);
     }
     // flash messages
   }
