@@ -1,10 +1,10 @@
 <h2>LOGIN</h2>
 <form class="example-container" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <mat-form-field>
-    <input type="text" matInput placeholder="username" formControlName="username">
+    <input type="text" matInput placeholder="username" formControlName="username" required>
   </mat-form-field>
   <mat-form-field>
-    <input type="password" matInput placeholder="password" formControlName="password">
+    <input type="password" matInput placeholder="password" formControlName="password" required>
   </mat-form-field>
   <button type="submit" mat-flat-button [disabled]="!loginForm.valid">Submit</button>
 </form>
