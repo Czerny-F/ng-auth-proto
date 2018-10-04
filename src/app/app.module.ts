@@ -6,6 +6,8 @@ import { MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/ma
 import { NgReduxModule, NgRedux } from '@angular-redux/store';
 
 import { AppRoutingModule } from './app-routing.module';
+import { rootReducer, IAppState, INITIAL_STATE } from './redux/store';
+import { AuthActions } from './redux/actions';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -29,7 +31,11 @@ import { ProfileComponent } from './profile/profile.component';
     MatButtonModule,
     NgReduxModule
   ],
-  providers: [],
+  providers: [AuthActions],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(ngRedux: NgRedux<IAppState>) {
+    ngRedux.configureStore(rootReducer, INITIAL_STATE);
+  }
+}
