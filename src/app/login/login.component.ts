@@ -7,10 +7,11 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm = this.fb.group({
+  private loginForm = this.fb.group({
     username: ['', Validators.required],
     password: ['', Validators.required],
   });
+  private redirectUrl = '/';
 
   constructor(private fb: FormBuilder) { }
 
@@ -18,9 +19,11 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.loginForm);
-    console.log(this.loginForm.value);
-    console.log(this.loginForm.valid);
-    console.log(this.loginForm.status);
+    // console.log(this.loginForm.status);
+    if (this.loginForm.valid) {
+      console.log(this.loginForm.value);
+      // redirect
+    }
+    // flash messages
   }
 }
