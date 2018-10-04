@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
+import { NgReduxModule, NgRedux } from '@angular-redux/store';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -25,7 +26,8 @@ import { ProfileComponent } from './profile/profile.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    NgReduxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
