@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
     private router: Router) {}
 
   ngOnInit() {
+    console.log('profile inited');
     this.authService.getPermission(this.router.url);
   }
 

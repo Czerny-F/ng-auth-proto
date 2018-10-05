@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
     private router: Router) {}
 
   ngOnInit() {
+    console.log('login inited');
     this.authService.getPermission(this.router.url);
   }
 
