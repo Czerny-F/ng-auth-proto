@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from "@angular/router";
 
+import { AuthService } from '../services/auth.service';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,21 +15,22 @@ export class LoginComponent implements OnInit {
     username: ['', Validators.required],
     password: ['', Validators.required],
   });
-  private redirectUrl = '/';
+  private message: string;
 
   constructor(
     private fb: FormBuilder,
-    private router: Router) { }
+    private authService: AuthService,
+    private router: Router) {}
 
   ngOnInit() {
+    this.authService.getPermission(this.router.url);
   }
 
-  onSubmit() {
+  onSubmit(): void {
     // console.log(this.loginForm.status);
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
-      // redirect
-      this.router.navigate(['/profile']);
+      this.authService.login(this.loginForm.value)
+        .subscribe(msg => this.message = msg);
     }
     // flash messages
   }
