@@ -3,14 +3,14 @@ import { Action } from 'redux';
 
 @Injectable()
 export class AuthActions {
-  // static INCREMENT = 'INCREMENT';
-  // static DECREMENT = 'DECREMENT';
-  //
-  // increment(): Action {
-  //   return { type: CounterActions.INCREMENT };
-  // }
-  //
-  // decrement(): Action {
-  //   return { type: CounterActions.DECREMENT };
-  // }
+  static LOGIN = 'Auth.LOGIN';
+  static LOGOUT = 'Auth.LOGOUT';
+
+  login(): Action {
+    return { type: AuthActions.LOGIN };
+  }
+
+  logout(): Action {
+    return { type: AuthActions.LOGOUT };
+  }
 }
