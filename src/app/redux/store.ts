@@ -10,7 +10,7 @@ export const INITIAL_STATE: IAppState = {
 };
 
 export function rootReducer(lastState: IAppState, action: Action): IAppState {
-  switch(action.type) {
+  switch (action.type) {
     case AuthActions.LOGIN:
       return { authenticated: true };
     case AuthActions.LOGOUT:

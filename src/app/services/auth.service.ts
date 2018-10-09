@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 import { NgRedux } from '@angular-redux/store';
 import { Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
